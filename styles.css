@@ -9,6 +9,7 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     text-align: center;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="%23ff7eb9" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>') 12 12, auto;
 }
 
 .container {
@@ -20,8 +21,8 @@ body {
 
 h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;, float 3s ease-in-out infinite
-    animation: glowText 2s ease-in-out infinite alternate;
+    margin-bottom: 1rem;
+    animation: glowText 2s ease-in-out infinite alternate, float 3s ease-in-out infinite;
 }
 
 .card {
@@ -36,9 +37,9 @@ h1 {
 }
 
 .card img {
-    width: 100%;, slowSpin 8s linear infinite
+    width: 100%;
     border-radius: 10px;
-    animation: sparkle 3s linear infinite;
+    animation: sparkle 3s linear infinite, slowSpin 8s linear infinite;
 }
 
 .card p {
@@ -49,7 +50,9 @@ h1 {
 
 button {
     margin-top: 1rem;
-    padding: 0.7linear-gradient(135deg, #ff7eb9, #ff6ba6);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #ff7eb9, #ff6ba6);
     border: none;
     border-radius: 25px;
     color: white;
@@ -67,8 +70,15 @@ button:hover {
 }
 
 button:active {
-    transform: translateY(-1px
-button:hover {
+    transform: translateY(-1px);
+}
+
+/* gallery image styling */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
     animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 .gallery img {
@@ -78,6 +88,12 @@ button:hover {
     transition: transform 0.3s ease;
 }
 
+.gallery img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.message-box {
+    margin-top: 1.5rem;
     animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 .message-box input {
@@ -104,20 +120,7 @@ button:hover {
     margin-top: 1rem;
     font-size: 1.2rem;
     color: #e91e63;
-    animation: fadeInPulse 0.5s ease-out
-    margin-top: 1.5rem;
-}
-.message-box input {
-    padding: 0.5rem;
-    width: 60%;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-}
-.message-box button {
-    margin-left: 0.5rem;
-}
-.message-box #displayedMessage {
-    margin-top: 1rem;
+    animation: fadeInPulse 0.5s ease-out;
     font-size: 1.2rem;
     color: #e91e63;
 }

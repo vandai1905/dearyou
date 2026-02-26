@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const bgMusic = document.getElementById("bgMusic");
     const photo = document.getElementById("photo");
 
+    // Auto play music on page load
+    bgMusic.play();
+    playButton.textContent = "Tắt nhạc";
+
     playButton.addEventListener("click", () => {
         if (bgMusic.paused) {
             bgMusic.play();
@@ -106,5 +110,92 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             animate();
         }
+    }
+
+    // Cursor sparkle effect on mousemove
+    document.addEventListener("mousemove", (e) => {
+        createCursorSparkle(e.clientX, e.clientY);
+    });
+
+    function createCursorSparkle(x, y) {
+        if (Math.random() > 0.8) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = '6px';
+            sparkle.style.height = '6px';
+            sparkle.style.background = '#ffb6c1';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.boxShadow = '0 0 8px #ffb6c1';
+            document.body.appendChild(sparkle);
+
+            let opacity = 1;
+            const duration = 400;
+            const startTime = Date.now();
+            const offsetY = -Math.random() * 20;
+
+            const animate = () => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                opacity = 1 - progress;
+
+                sparkle.style.top = (y + offsetY - progress * 30) + 'px';
+                sparkle.style.opacity = opacity;
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    sparkle.remove();
+                }
+            };
+            animate();
+        }
+    }
+
+    // Click ripple effect
+    document.addEventListener("click", (e) => {
+        if (e.target.tagName !== "BUTTON" && e.target.tagName !== "INPUT") {
+            createClickRipple(e.clientX, e.clientY);
+        }
+    });
+
+    function createClickRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.style.position = 'fixed';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.style.width = '0px';
+        ripple.style.height = '0px';
+        ripple.style.borderRadius = '50%';
+        ripple.style.border = '2px solid #ff7eb9';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.transform = 'translate(-50%, -50%)';
+        document.body.appendChild(ripple);
+
+        let size = 0;
+        let opacity = 1;
+        const duration = 500;
+        const startTime = Date.now();
+
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            size = progress * 100;
+            opacity = 1 - progress;
+
+            ripple.style.width = size + 'px';
+            ripple.style.height = size + 'px';
+            ripple.style.opacity = opacity;
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                ripple.remove();
+            }
+        };
+        animate();
     }
 });
