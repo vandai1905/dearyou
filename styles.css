@@ -1,0 +1,80 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+
+.card {
+    position: relative;
+    background: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    animation: sparkle 3s linear infinite;
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: #ff7eb9;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff8a8a, 0 0 30px #ff8a8a;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff8a8a, 0 0 40px #ff8a8a;
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3) drop-shadow(0 0 8px #fff);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
