@@ -7,16 +7,31 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <div class="hearts" aria-hidden="true"></div>
     <div class="container">
         <h1>Chúc mừng ngày 8/3, em yêu! 💖</h1>
-        <div class="card">
+
+        <!-- gallery section -->
+        <div class="gallery">
             <img id="photo" src="assets/images/placeholder.jpg" alt="Ảnh em yêu" />
+            <!-- thêm ảnh khác nếu muốn -->
+        </div>
+
+        <div class="card">
             <p>
                 Gửi đến em tất cả yêu thương và ngọt ngào nhất. Chúc em luôn
                 xinh đẹp, vui tươi và hạnh phúc bên anh!
             </p>
         </div>
+
         <button id="playButton">Bật nhạc</button>
+
+        <!-- personal message -->
+        <div class="message-box">
+            <input type="text" id="customMessage" placeholder="Viết lời chúc của bạn" />
+            <button id="showMessage">Hiện lời chúc</button>
+            <p id="displayedMessage"></p>
+        </div>
     </div>
 
     <audio id="bgMusic" loop>
